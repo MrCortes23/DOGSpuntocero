@@ -88,7 +88,7 @@ export function HeroSection() {
               initial={{ x: 50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.25, duration: 0.8, ease: "easeOut" }}
-              className="flex justify-center lg:justify-end items-end self-end mt-4 lg:mt-0"
+              className="flex justify-center lg:justify-end items-end self-end lg:mt-0"
             >
               {/* <video
                 autoPlay

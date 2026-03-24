@@ -90,7 +90,7 @@ export function CuidadosSection() {
                 viewport={{ once: true }}
                 className={`
                   ${item.id === 1 ? "col-span-1 sm:col-span-2 row-span-1 sm:row-span-2" : "col-span-1"}
-                  relative overflow-hidden rounded-2xl cursor-pointer group 
+                  relative overflow-hidden rounded-2xl cursor-pointer group shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)] transition-all duration-500
                   ${item.featured ? "min-h-[220px] sm:min-h-[260px] md:min-h-[460px]" : "min-h-[140px] md:min-h-[220px]"}
                 `}
               >

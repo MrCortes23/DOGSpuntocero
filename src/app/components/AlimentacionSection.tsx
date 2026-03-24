@@ -97,8 +97,12 @@ function NutritionChatbox() {
     <div className="bg-white rounded-3xl border border-neutral-200/60 overflow-hidden h-[450px] md:h-[550px] flex flex-col shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
       <div className="px-6 py-4 md:py-5 border-b border-neutral-100 bg-white/80 backdrop-blur-md sticky top-0 z-10">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 md:w-10 md:h-10 bg-[#2d4a2b] rounded-xl md:rounded-2xl flex items-center justify-center">
-            <Bot className="w-4 h-4 md:w-5 md:h-5 text-white" />
+          <div className="w-8 h-8 md:w-10 md:h-10 rounded-xl md:rounded-2xl overflow-hidden shadow-sm border border-neutral-100/50">
+            <img 
+              src="/images/robotavatar.jpg" 
+              alt="NutriCan Avatar" 
+              className="w-full h-full object-cover"
+            />
           </div>
           <div>
             <h4 className="font-normal text-gray-800 text-sm md:text-base">Asistente Nutricional</h4>
@@ -116,8 +120,8 @@ function NutritionChatbox() {
       >
         {messages.length === 0 && (
           <div className="h-full flex flex-col items-center justify-center text-center px-4 py-8">
-            <div className="w-12 h-12 md:w-14 md:h-14 bg-neutral-50 rounded-full flex items-center justify-center mb-4">
-              <Sparkles className="w-5 h-5 md:w-6 md:h-6 text-gray-300" />
+            <div className="w-12 h-12 md:w-14 md:h-14 bg-neutral-100 rounded-full flex items-center justify-center mb-4 mt-10 lg:mt-8">
+              <Sparkles className="w-5 h-8 md:w-6 md:h-10 text-gray-300" />
             </div>
             <p className="text-gray-600 text-sm mb-1 font-normal">
               Pregúntame sobre nutrición canina
@@ -133,7 +137,7 @@ function NutritionChatbox() {
                   onClick={() => {
                     append({ role: "user", content: question })
                   }}
-                  className="w-full text-left px-4 py-3 bg-neutral-50/50 hover:bg-neutral-100/50 border border-neutral-100/50 rounded-xl text-xs md:text-sm text-gray-500 transition-all hover:scale-[1.01] active:scale-[0.99] font-light"
+                  className="w-full text-center px-4 py-3 bg-neutral-100/50 hover:bg-neutral-100/50 border border-neutral-100/50 rounded-xl text-xs md:text-sm text-gray-500 transition-all hover:scale-[1.01] active:scale-[0.99] font-light cursor-pointer"
                 >
                   {question}
                 </button>
@@ -187,7 +191,7 @@ function NutritionChatbox() {
           <button
             type="submit"
             disabled={isLoading || !input.trim()}
-            className="w-10 h-10 md:w-12 md:h-12 bg-[#5a9a56] text-white rounded-xl md:rounded-2xl flex items-center justify-center hover:bg-[#4d8649] transition-all active:scale-95 disabled:opacity-40 shadow-sm"
+            className="w-10 h-10 md:w-12 md:h-12 bg-[#5a9a56] text-white rounded-xl md:rounded-2xl flex items-center justify-center hover:bg-[#4d8649] transition-all active:scale-95 disabled:opacity-40 shadow-sm cursor-pointer"
           >
             <Send className="w-3.5 h-3.5 md:w-4 md:h-4 text-white" />
           </button>
@@ -208,7 +212,7 @@ export function AlimentacionSection() {
       id="alimentacion"
       className="min-h-screen relative flex flex-col z-30 overflow-hidden"
       style={{
-        background: "linear-gradient(160deg, #f4faf4 0%, #edf6fa 40%, #f7fbf7 70%, #f0f7fb 100%)",
+        background: "#ffffff",
       }}
     >
       <div className="flex-1 flex flex-col justify-center px-4 sm:px-6 lg:px-8 py-10 md:py-16 w-full relative z-10 max-w-[1320px] mx-auto">
