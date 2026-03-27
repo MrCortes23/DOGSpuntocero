@@ -192,7 +192,7 @@ export function RazasSection() {
 
       {/* Bottom Banner — acts as a separator */}
       <div
-        className="relative py-4 px-8 flex-shrink-0 z-20 shadow-[0_12px_30px_rgba(0,0,0,0.06)]"
+        className="relative py-4 px-8 flex-shrink-0 z-20 shadow-[0_20px_50px_rgba(0,0,0,0.12)]"
         style={{
           background: "linear-gradient(135deg, rgba(168,230,163,0.15), rgba(214,240,255,0.18))",
           borderTop: "1px solid rgba(168,230,163,0.15)",

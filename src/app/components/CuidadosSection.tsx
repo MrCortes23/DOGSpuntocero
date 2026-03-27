@@ -39,15 +39,15 @@ const careItems = [
   {
     id: 4,
     title: "Higiene",
-    subtitle: "Grooming profesional",
+    subtitle: "Sanidad profesional",
     image: "/images/dog-grooming.jpg",
     span: "col-span-1 row-span-1"
   },
   {
     id: 5,
     title: "Juguetes",
-    subtitle: "Juguetes para perros",
-    image: "/images/dog-toys.webp",
+    subtitle: "Entretenimiento vital",
+    image: "/images/dog-toys.jpg",
     span: "col-span-1 row-span-1"
   }
 ]
@@ -56,30 +56,33 @@ export function CuidadosSection() {
   return (
     <section
       id="cuidados"
-      className="min-h-screen lg:h-screen relative flex flex-col z-30"
+      className="min-h-screen relative flex flex-col z-30 overflow-hidden"
       style={{
         background: "linear-gradient(160deg, #f4faf4 0%, #edf6fa 40%, #f7fbf7 70%, #f0f7fb 100%)",
       }}
     >
-      <div className="flex-1 flex flex-col justify-center px-6 py-12 md:py-20 w-full relative z-10 overflow-hidden">
-        <div className="max-w-7xl mx-auto w-full">
+      <div className="flex-1 flex flex-col justify-center px-4 sm:px-6 lg:px-8 py-12 md:py-20 lg:py-24 w-full relative z-10 max-w-[1320px] mx-auto">
+        <div className="w-full">
           <motion.header
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="mb-8 lg:mb-12 text-center"
+            className="mb-10 md:mb-16 text-center"
           >
             <span className="text-[#5a9a56] text-xs font-semibold tracking-widest uppercase mb-3 block">
-              Guía esencial
+              Guía
             </span>
             <h2 className="text-4xl lg:text-5xl font-light text-gray-900 mb-5 tracking-tight">
-              Cuidados para tu perro
+              Cuidados <span className="font-normal" style={{ color: "black" }}>esenciales</span>
             </h2>
             <div className="h-1 w-20 bg-gradient-to-r from-[#A8E6A3] to-[#7DD3C0] rounded-full mx-auto" />
+            <p className="text-gray-500 text-base md:text-lg max-w-2xl mx-auto mt-6 font-light leading-relaxed">
+              Descubre los pilares fundamentales para mantener a tu mejor amigo feliz, sano y lleno de vitalidad todos los días.
+            </p>
           </motion.header>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
             {careItems.map((item, index) => (
               <motion.article
                 key={item.id}
@@ -88,47 +91,46 @@ export function CuidadosSection() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
+                whileHover={{ y: -4 }}
                 className={`
                   ${item.id === 1 ? "col-span-1 sm:col-span-2 row-span-1 sm:row-span-2" : "col-span-1"}
-                  relative overflow-hidden rounded-2xl cursor-pointer group shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)] transition-all duration-500
-                  ${item.featured ? "min-h-[220px] sm:min-h-[260px] md:min-h-[460px]" : "min-h-[140px] md:min-h-[220px]"}
+                  relative flex flex-col p-3 md:p-4 rounded-3xl cursor-pointer group 
+                  bg-white/40 backdrop-blur-md border border-white/60 
+                  shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.1)] 
+                  transition-all duration-500 overflow-hidden hover:bg-white/50
+                  min-h-[320px] sm:min-h-[300px] md:min-h-[340px] lg:min-h-[320px]
                 `}
               >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
+                {/* Image Container (Separated completely from the text) */}
+                <div className="relative flex-1 rounded-2xl overflow-hidden mb-3 md:mb-4 bg-gray-50">
+                  <motion.img
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    src={item.image}
+                    alt={item.title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 ring-1 ring-black/5 rounded-2xl pointer-events-none" />
+                </div>
 
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/30 to-transparent transition-opacity duration-300 opacity-80 group-hover:opacity-90" />
+                {/* Text Bottom Section (Sitting cleanly inside the glass article) */}
+                <div className="flex items-center justify-between px-1 shrink-0">
+                  <div>
+                    <p className="text-[10px] md:text-xs font-semibold tracking-wider uppercase mb-0.5 md:mb-1 text-[#5a9a56]">
+                      {item.subtitle}
+                    </p>
+                    <h3 className={`text-gray-900 tracking-tight ${item.featured ? "text-xl md:text-2xl font-medium" : "text-base md:text-lg font-medium"}`}>
+                      {item.title}
+                    </h3>
+                  </div>
 
-                <div className="absolute inset-0 p-5 md:p-6 flex flex-col justify-end">
-                  <div className="flex items-end justify-between">
-                    <div>
-                      <p
-                        className="text-xs font-semibold tracking-wider uppercase mb-1 block"
-                        style={{
-                          background: "linear-gradient(135deg, #A8E6A3, #7DD3C0)",
-                          WebkitBackgroundClip: "text",
-                          WebkitTextFillColor: "transparent",
-                        }}
-                      >
-                        {item.subtitle}
-                      </p>
-                      <h3 className={`text-white font-medium tracking-wide ${item.featured ? "text-2xl md:text-3xl" : "text-lg md:text-xl"
-                        }`}>
-                        {item.title}
-                      </h3>
-                    </div>
-
-                    <div className="w-10 h-10 rounded-full bg-[#A8E6A3] border-2 border-white/20 shadow-lg flex items-center justify-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                      <ArrowUpRight className="w-5 h-5 text-gray-900" />
-                    </div>
+                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white border border-neutral-100 shadow-sm flex items-center justify-center -translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+                    <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 text-[#5a9a56]" />
                   </div>
                 </div>
-                {/* Border glow on hover */}
-                <div className="absolute inset-0 rounded-2xl border border-white/20 group-hover:border-[#A8E6A3]/60 transition-colors duration-500" />
 
+                {/* Outer Glassmorphism Border */}
+                <div className="absolute inset-0 rounded-3xl border border-white/80 pointer-events-none" />
               </motion.article>
             ))}
           </div>
@@ -137,7 +139,7 @@ export function CuidadosSection() {
 
       {/* Bottom Banner — acts as a separator */}
       <div
-        className="relative py-4 px-8 flex-shrink-0 z-20 shadow-[0_12px_30px_rgba(0,0,0,0.06)]"
+        className="relative py-4 px-8 flex-shrink-0 z-20 shadow-[0_20px_50px_rgba(0,0,0,0.12)] mt-auto"
         style={{
           background: "linear-gradient(135deg, rgba(168,230,163,0.15), rgba(214,240,255,0.18))",
           borderTop: "1px solid rgba(168,230,163,0.15)",

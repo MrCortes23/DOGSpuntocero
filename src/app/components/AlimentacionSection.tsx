@@ -210,7 +210,7 @@ export function AlimentacionSection() {
   return (
     <section
       id="alimentacion"
-      className="min-h-screen relative flex flex-col z-30 overflow-hidden"
+      className="min-h-screen relative flex flex-col z-30 lg:overflow-hidden"
       style={{
         background: "#ffffff",
       }}
@@ -370,7 +370,7 @@ export function AlimentacionSection() {
 
       {/* Bottom Banner — Separador estándar del proyecto */}
       <div
-        className="relative py-8 px-8 flex-shrink-0 z-20 shadow-[0_-12px_30px_rgba(0,0,0,0.02)]"
+        className="relative py-8 px-8 flex-shrink-0 z-20 shadow-[0_20px_50px_rgba(0,0,0,0.12)]"
         style={{
           background: "linear-gradient(135deg, rgba(90,154,86,0.05), rgba(109,184,204,0.08))",
           borderTop: "1px solid rgba(90,154,86,0.1)",

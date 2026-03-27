@@ -71,28 +71,28 @@ export function SideMenu({ activeSection, onSectionClick }: SideMenuProps) {
           transition: "width 0.45s cubic-bezier(0.4, 0, 0.2, 1)",
         }}
       >
-        {/* Glassmorphism background panel */}
+        {/* 1. Permanent Sidebar Background (The "Fusion" layer) */}
+        <div 
+          className="absolute left-0 top-0 w-[70px] h-full bg-white border-r border-[#f3f4f6] pointer-events-none"
+        />
+
+        {/* 2. Floating expansion panel (The "Glassmorphism" layer) */}
         <motion.div
           className="absolute left-0 top-1/2 rounded-r-3xl pointer-events-none"
           animate={{
-            width: isHovered ? `${exMaxX + 50}px` : "68px",
-            height: isHovered ? `${containerHeight + 30}px` : `${collapsedTotalHeight + 70}px`,
+            width: isHovered ? `${exMaxX + 50}px` : "70px",
+            height: isHovered ? `${containerHeight + 30}px` : "0px",
             y: "-50%",
+            opacity: isHovered ? 1 : 0,
           }}
           transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
           style={{
-            background: isHovered
-              ? "linear-gradient(145deg, rgba(255,255,255,0.92) 0%, rgba(240,248,255,0.75) 50%, rgba(168,230,163,0.15) 100%)"
-              : "linear-gradient(145deg, rgba(255,255,255,0.7) 0%, rgba(240,248,255,0.35) 100%)",
+            background: "linear-gradient(145deg, rgba(255,255,255,0.92) 0%, rgba(240,248,255,0.75) 50%, rgba(168,230,163,0.15) 100%)",
             backdropFilter: "blur(20px)",
             WebkitBackdropFilter: "blur(20px)",
-            border: isHovered
-              ? "1px solid rgba(168,230,163,0.3)"
-              : "1px solid rgba(255,255,255,0.4)",
+            border: "1px solid rgba(168,230,163,0.3)",
             borderLeft: "none",
-            boxShadow: isHovered
-              ? "12px 0 45px rgba(0,0,0,0.12), 0 0 0 1px rgba(255,255,255,0.2) inset"
-              : "6px 0 25px rgba(0,0,0,0.08), 0 0 0 1px rgba(255,255,255,0.15) inset",
+            boxShadow: "12px 0 45px rgba(0,0,0,0.12), 0 0 0 1px rgba(255,255,255,0.2) inset",
           }}
         />
 

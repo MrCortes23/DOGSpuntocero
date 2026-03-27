@@ -107,9 +107,9 @@ export function HeroSection() {
               <img
                 src="/images/collin.webp"
                 alt="Perro Collin"
-                className="w-full max-w-[340px] sm:max-w-lg lg:max-w-none lg:w-auto object-contain z-10"
+                className="w-full max-w-[480px] sm:max-w-lg lg:max-w-none lg:w-auto object-contain z-10"
                 style={{
-                  maxHeight: "max(60vh, min(90vh, 900px))",
+                  maxHeight: "max(70vh, min(90vh, 900px))",
                   filter: "drop-shadow(0 24px 48px rgba(0,0,0,0.12))",
                 }}
               />
